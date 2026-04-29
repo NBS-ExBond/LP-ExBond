@@ -1,21 +1,3 @@
-<a
-  href="https://discord.gg/zsqekPAh"
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    display: "inline-block",
-    backgroundColor: "#5865F2",
-    color: "white",
-    padding: "14px 28px",
-    borderRadius: "10px",
-    fontSize: "18px",
-    textDecoration: "none",
-    fontWeight: "bold"
-  }}
->
-  Discordに参加する
-</a>
-
 export default function Home() {
   return (
     <main style={{
@@ -24,7 +6,7 @@ export default function Home() {
       minHeight: "100vh",
       fontFamily: "sans-serif"
     }}>
-      
+
       {/* ヒーロー */}
       <section style={{ textAlign: "center", padding: "80px 20px" }}>
         <h1 style={{ fontSize: "36px", marginBottom: "20px" }}>
@@ -33,20 +15,16 @@ export default function Home() {
         <p style={{ fontSize: "18px", marginBottom: "30px" }}>
           初心者OK・1人参加OK・セッション中心
         </p>
-        <a href="#" style={{
-          background: "#2563eb",
-          padding: "12px 24px",
-          borderRadius: "8px",
-          color: "white",
-          textDecoration: "none"
-        }}>
+        <a href="https://discord.gg/zsqekPAh" target="_blank" rel="noopener noreferrer" style={{ background: "#5865F2", padding: "12px 24px", borderRadius: "8px", color: "white", textDecoration: "none" }}>
           Discordに参加する
         </a>
       </section>
 
       {/* ターゲット */}
       <section style={{ padding: "60px 20px", maxWidth: "800px", margin: "0 auto" }}>
-        <h2 style={{ fontSize: "24px", marginBottom: "20px" }}>こんな人におすすめ</h2>
+        <h2 style={{ fontSize: "24px", marginBottom: "20px" }}>
+          こんな人におすすめ
+        </h2>
         <ul>
           <li>・バンドをやりたいけど機会がない</li>
           <li>・1人で参加できる場所を探している</li>
@@ -66,22 +44,33 @@ export default function Home() {
         </ul>
       </section>
 
-      {/* Discord風 */}
+      {/* イベントスケジュール */}
       <section style={{ padding: "60px 20px" }}>
-        <h2 style={{ textAlign: "center", marginBottom: "30px" }}>参加者の声</h2>
+        <h2 style={{ fontSize: "24px", textAlign: "center", marginBottom: "20px" }}>
+          イベントスケジュール
+        </h2>
+        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+          <iframe
+            src="https://calendar.google.com/calendar/embed?src=ngy.bandsession%40gmail.com&ctz=Asia%2FTokyo"
+            style={{ border: 0, width: "100%", height: "500px", borderRadius: "8px" }}
+            frameBorder="0"
+            scrolling="no"
+          />
+        </div>
+      </section>
 
+      {/* Discord風（参加者の声） */}
+      <section style={{ padding: "60px 20px" }}>
+        <h2 style={{ textAlign: "center", marginBottom: "30px" }}>
+          参加者の声
+        </h2>
         <div style={{ maxWidth: "600px", margin: "0 auto" }}>
           {[
             { user: "タカ", text: "初参加でも安心でした！" },
             { user: "ユウ", text: "めっちゃ楽しいです！" },
             { user: "ミナ", text: "雰囲気が最高！" }
           ].map((msg, i) => (
-            <div key={i} style={{
-              background: "#222",
-              padding: "15px",
-              borderRadius: "8px",
-              marginBottom: "10px"
-            }}>
+            <div key={i} style={{ background: "#222", padding: "15px", borderRadius: "8px", marginBottom: "10px" }}>
               <div style={{ fontSize: "12px", color: "#aaa" }}>{msg.user}</div>
               <div>{msg.text}</div>
             </div>
@@ -89,46 +78,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA（最下部） */}
       <section style={{ textAlign: "center", padding: "80px 20px" }}>
-        <h2 style={{ marginBottom: "20px" }}>今すぐ参加する</h2>
-        <a href="#" style={{
-          background: "#16a34a",
-          padding: "14px 28px",
-          borderRadius: "8px",
-          color: "white",
-          textDecoration: "none",
-          fontSize: "18px"
-        }}>
-          Discordに参加する
+        <a href="https://discord.gg/zsqekPAh" target="_blank" rel="noopener noreferrer" style={{ background: "linear-gradient(135deg, #5865F2, #4752C4)", padding: "16px 32px", borderRadius: "12px", color: "white", textDecoration: "none", fontSize: "20px", fontWeight: "bold" }}>
+          今すぐDiscordに参加する
         </a>
       </section>
-
     </main>
   );
 }
-
-<div style={{ textAlign: "center", marginTop: "30px" }}>
-  <a
-    href="https://discord.gg/zsqekPAh"
-    target="_blank"
-    rel="noopener noreferrer"
-    style={{
-      display: "inline-block",
-      background: "linear-gradient(135deg, #5865F2, #4752C4)",
-      color: "#fff",
-      padding: "16px 32px",
-      borderRadius: "12px",
-      fontSize: "20px",
-      fontWeight: "bold",
-      textDecoration: "none",
-      boxShadow: "0 8px 20px rgba(0,0,0,0.3)"
-    }}
-  >
-    今すぐDiscordに参加する
-  </a>
-</div>
-
-onMouseEnter / onMouseLeave でホバー効果追加
-onMouseEnter={(e) => e.currentTarget.style.opacity = "0.8"}
-onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
