@@ -1,3 +1,21 @@
+<a
+  href="https://discord.gg/zsqekPAh"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{
+    display: "inline-block",
+    backgroundColor: "#5865F2",
+    color: "white",
+    padding: "14px 28px",
+    borderRadius: "10px",
+    fontSize: "18px",
+    textDecoration: "none",
+    fontWeight: "bold"
+  }}
+>
+  Discordに参加する
+</a>
+
 export default function Home() {
   return (
     <main style={{
@@ -89,3 +107,28 @@ export default function Home() {
     </main>
   );
 }
+
+<div style={{ textAlign: "center", marginTop: "30px" }}>
+  <a
+    href="https://discord.gg/zsqekPAh"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      display: "inline-block",
+      background: "linear-gradient(135deg, #5865F2, #4752C4)",
+      color: "#fff",
+      padding: "16px 32px",
+      borderRadius: "12px",
+      fontSize: "20px",
+      fontWeight: "bold",
+      textDecoration: "none",
+      boxShadow: "0 8px 20px rgba(0,0,0,0.3)"
+    }}
+  >
+    今すぐDiscordに参加する
+  </a>
+</div>
+
+onMouseEnter / onMouseLeave でホバー効果追加
+onMouseEnter={(e) => e.currentTarget.style.opacity = "0.8"}
+onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
