@@ -24,3 +24,108 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ── LP レスポンシブ用クラス ── */
+
+.nav-links-center {
+  display: flex;
+  gap: 36px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero-content-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  padding: 0 clamp(28px, 8vw, 80px);
+}
+
+.lp-section       { padding: 80px 60px; }
+.lp-section-alt   { padding: 20px 60px 80px; }
+.lp-section-cal   { padding: 0 60px 80px; }
+.lp-cta           { padding: 100px 60px; }
+
+/* こんな人おすすめ: 4列 */
+.recommend-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+/* あなたの今: 3列 */
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* 特徴: 4列 */
+.features-4col {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-bottom: 20px;
+}
+
+/* Discord説明: 3列グリッド */
+.discord-3col {
+  display: grid;
+  grid-template-columns: 60px 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* 参加者の声: 3列 */
+.voices-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* FAQ: 2列 */
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* Googleカレンダー */
+.cal-iframe {
+  border: none;
+  width: 100%;
+  height: 460px;
+  display: block;
+}
+
+/* ── レスポンシブ改行ユーティリティ ── */
+/* PCのみ改行（640px超で有効） */
+.br-pc { display: inline; }
+/* SPのみ改行（640px以下で有効） */
+.br-sp { display: none; }
+
+/* ── モバイル（640px以下）── */
+@media (max-width: 640px) {
+  .nav-links-center { display: none; }
+  .br-pc { display: none; }
+  .br-sp { display: inline; }
+
+  .lp-section     { padding: 48px 20px; }
+  .lp-section-alt { padding: 12px 20px 48px; }
+  .lp-section-cal { padding: 0 20px 48px; }
+  .lp-cta         { padding: 64px 20px; }
+
+  .recommend-grid  { grid-template-columns: 1fr 1fr; }
+  .level-grid      { grid-template-columns: 1fr; }
+  .features-4col   { grid-template-columns: 1fr 1fr; }
+  .discord-3col    { grid-template-columns: 1fr; }
+  .voices-grid     { grid-template-columns: 1fr; }
+  .faq-grid        { grid-template-columns: 1fr; }
+
+  /* カードの固定高さを解除してコンテンツに合わせる */
+  .level-card  { height: auto !important; min-height: 160px; }
+  .voice-card  { height: auto !important; min-height: 140px; }
+
+  .cal-iframe { height: 340px; }
+}

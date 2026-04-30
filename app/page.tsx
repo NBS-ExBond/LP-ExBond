@@ -61,7 +61,7 @@ function DiscordBtn({
         borderRadius: "8px",
         textDecoration: "none",
         fontWeight: 700,
-        fontSize: "14px",
+        fontSize: "15px",
         whiteSpace: "nowrap",
         ...style,
       }}
@@ -76,11 +76,7 @@ function DiscordBtn({
 function FAQAccordion({ items }: { items: FAQItem[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   return (
-    <div style={{
-      display: "grid",
-      gridTemplateColumns: "1fr 1fr",
-      gap: "10px",
-    }}>
+    <div className="faq-grid">
       {items.map((item, i) => (
         <div key={i} style={{
           background: "#0f0f0f",
@@ -92,7 +88,7 @@ function FAQAccordion({ items }: { items: FAQItem[] }) {
             onClick={() => setOpenIndex(openIndex === i ? null : i)}
             style={{
               width: "100%",
-              padding: "16px 20px",
+              padding: "18px 20px",
               background: "transparent",
               border: "none",
               color: "white",
@@ -100,17 +96,17 @@ function FAQAccordion({ items }: { items: FAQItem[] }) {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              fontSize: "13px",
+              fontSize: "15px",
               fontWeight: 500,
               textAlign: "left",
               gap: "12px",
             }}
           >
             <span>{item.question}</span>
-            <span style={{ fontSize: "18px", color: "#555", flexShrink: 0, fontWeight: 300 }}>+</span>
+            <span style={{ fontSize: "20px", color: "#555", flexShrink: 0, fontWeight: 300 }}>+</span>
           </button>
           {openIndex === i && (
-            <div style={{ padding: "0 20px 16px", fontSize: "12px", color: "#777", lineHeight: 1.7 }}>
+            <div style={{ padding: "0 20px 18px", fontSize: "15px", color: "#777", lineHeight: 1.8 }}>
               {item.answer}
             </div>
           )}
@@ -164,28 +160,25 @@ export default function Home() {
             </svg>
           </div>
           <div>
-            <div style={{ fontSize: "15px", fontWeight: 800, letterSpacing: "0.04em", lineHeight: 1.1 }}>ExBond</div>
-            <div style={{ fontSize: "7px", color: "#818cf8", letterSpacing: "0.14em", lineHeight: 1 }}>NAGOYA BAND COMMUNITY</div>
+            <div style={{ fontSize: "18px", fontWeight: 800, letterSpacing: "0.04em", lineHeight: 1.1 }}>ExBond</div>
+            <div style={{ fontSize: "11px", color: "#818cf8", letterSpacing: "0.14em", lineHeight: 1 }}>NAGOYA BAND COMMUNITY</div>
           </div>
         </div>
 
-        {/* Center nav */}
-        <div style={{
-          display: "flex", gap: "36px",
-          position: "absolute", left: "50%", transform: "translateX(-50%)",
-        }}>
+        {/* Center nav（モバイルで非表示） */}
+        <div className="nav-links-center">
           {["特徴", "参加の流れ", "参加者の声", "よくある質問"].map((label) => (
             <a key={label} href={`#${label}`} style={{
               color: "#bbb",
               textDecoration: "none",
-              fontSize: "13px",
+              fontSize: "16px",
             }}>{label}</a>
           ))}
         </div>
 
         {/* Right */}
         <div style={{ marginLeft: "auto" }}>
-          <DiscordBtn href={DISCORD_URL} style={{ fontSize: "12px", padding: "8px 14px" }}>
+          <DiscordBtn href={DISCORD_URL} style={{ fontSize: "15px", padding: "9px 18px" }}>
             Discordに参加する
           </DiscordBtn>
         </div>
@@ -207,12 +200,12 @@ export default function Home() {
           backgroundImage: "url('https://images.unsplash.com/photo-1501612780327-45045538702b?w=1600&q=80')",
           backgroundSize: "cover",
           backgroundPosition: "60% center",
-          filter: "brightness(0.3)",
+          filter: "brightness(0.5)",
         }} />
         {/* 左フェード */}
         <div style={{
           position: "absolute", inset: 0,
-          background: "linear-gradient(to right, #0b0b0b 38%, rgba(11,11,11,0.6) 65%, rgba(11,11,11,0.1) 100%)",
+          background: "linear-gradient(to right, #0b0b0b 30%, rgba(11,11,11,0.55) 58%, rgba(11,11,11,0.05) 100%)",
         }} />
         {/* 下フェード */}
         <div style={{
@@ -221,7 +214,8 @@ export default function Home() {
           background: "linear-gradient(to top, #0b0b0b, transparent)",
         }} />
 
-        <div style={{ position: "relative", padding: "0 60px", maxWidth: "560px" }}>
+        {/* テキストエリア（モバイルでpadding縮小） */}
+        <div className="hero-content-wrapper">
           <h1 style={{
             fontSize: "clamp(42px, 6vw, 74px)",
             fontWeight: 900,
@@ -232,10 +226,10 @@ export default function Home() {
             名古屋で、<br />気軽にバンドをやろう
           </h1>
 
-          <p style={{ fontSize: "14px", color: "#818cf8", fontWeight: 700, marginBottom: "6px" }}>
+          <p style={{ fontSize: "16px", color: "#818cf8", fontWeight: 700, marginBottom: "8px" }}>
             初心者でも、久しぶりでも、上級者でも。
           </p>
-          <p style={{ fontSize: "12px", color: "#777", marginBottom: "28px" }}>
+          <p style={{ fontSize: "15px", color: "#777", marginBottom: "28px" }}>
             固定バンドなし。セッションでつながる音楽コミュニティ
           </p>
 
@@ -251,55 +245,56 @@ export default function Home() {
                 border: "1px solid rgba(255,255,255,0.1)",
                 borderRadius: "20px",
                 padding: "5px 14px",
-                fontSize: "12px",
+                fontSize: "14px",
                 display: "flex",
                 alignItems: "center",
                 gap: "5px",
                 color: "#ccc",
               }}>
-                <span style={{ fontSize: "11px" }}>{b.icon}</span>
+                <span>{b.icon}</span>
                 {b.label}
               </div>
             ))}
           </div>
 
-          <DiscordBtn href={DISCORD_URL} style={{ fontSize: "15px", padding: "15px 30px", borderRadius: "8px", marginBottom: "10px" }}>
+          <DiscordBtn href={DISCORD_URL} style={{ fontSize: "16px", padding: "16px 32px", borderRadius: "8px", marginBottom: "10px" }}>
             Discordに参加する（見るだけOK）
           </DiscordBtn>
-          <div style={{ fontSize: "11px", color: "#555" }}>無料で参加できます</div>
+          <div style={{ fontSize: "14px", color: "#555" }}>無料で参加できます</div>
         </div>
       </section>
 
       {/* ══════════════ こんな人におすすめ ══════════════ */}
-      <section style={{ padding: "72px 40px" }}>
+      <section className="lp-section">
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
-          <h2 style={{ textAlign: "center", fontSize: "22px", fontWeight: 800, marginBottom: "6px" }}>
+          <h2 style={{ textAlign: "center", fontSize: "30px", fontWeight: 800, marginBottom: "8px" }}>
             こんな人におすすめ
           </h2>
-          <p style={{ textAlign: "center", color: "#666", fontSize: "12px", marginBottom: "36px" }}>
+          <p style={{ textAlign: "center", color: "#666", fontSize: "16px", marginBottom: "36px" }}>
             ひとつでも当てはまる方は、ぜひご参加ください
           </p>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "12px" }}>
+          {/* 4列（モバイルで2列）*/}
+          <div className="recommend-grid">
             {[
               {
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" width="26" height="26"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>,
-                title: "バンドをやりたいけど\nメンバーがいない",
+                title: "バンドをやりたいけどメンバーがいない",
                 desc: "気軽に集まれる仲間が見つかります",
               },
               {
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" width="26" height="26"><path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3M8 22h8"/></svg>,
-                title: "楽器を始めたいけど\nきっかけがない",
+                title: "楽器を始めたいけどきっかけがない",
                 desc: "初心者も安心して参加できます",
               },
               {
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" width="26" height="26"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5M12 7v5l4 2"/></svg>,
-                title: "昔やっていたけど、\nまた再開したい",
+                title: "昔やっていたけど、また再開したい",
                 desc: "ブランクがあっても大丈夫",
               },
               {
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" width="26" height="26"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>,
-                title: "とにかく音楽を一緒に\n楽しみたい",
+                title: "とにかく音楽を一緒に楽しみたい",
                 desc: "音楽好きが集まる場所です",
               },
             ].map((card, i) => (
@@ -319,10 +314,10 @@ export default function Home() {
                 }}>
                   {card.icon}
                 </div>
-                <div style={{ fontSize: "13px", fontWeight: 700, marginBottom: "7px", whiteSpace: "pre-line", lineHeight: 1.55 }}>
+                <div style={{ fontSize: "16px", fontWeight: 700, marginBottom: "8px", whiteSpace: "pre-line", lineHeight: 1.55 }}>
                   {card.title}
                 </div>
-                <div style={{ fontSize: "11px", color: "#666", lineHeight: 1.6 }}>{card.desc}</div>
+                <div style={{ fontSize: "15px", color: "#666", lineHeight: 1.6 }}>{card.desc}</div>
               </div>
             ))}
           </div>
@@ -330,28 +325,29 @@ export default function Home() {
       </section>
 
       {/* ══════════════ あなたの"今"に合わせて ══════════════ */}
-      <section style={{ padding: "20px 40px 72px" }}>
+      <section className="lp-section-alt">
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
-          <h2 style={{ textAlign: "center", fontSize: "22px", fontWeight: 800, marginBottom: "6px" }}>
+          <h2 style={{ textAlign: "center", fontSize: "30px", fontWeight: 800, marginBottom: "8px" }}>
             あなたの&quot;今&quot;に合わせて参加できます
           </h2>
-          <p style={{ textAlign: "center", color: "#666", fontSize: "12px", marginBottom: "28px" }}>
+          <p style={{ textAlign: "center", color: "#666", fontSize: "16px", marginBottom: "28px" }}>
             どんな状況でも歓迎します
           </p>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px" }}>
+          {/* 3列（モバイルで1列・高さ自動）*/}
+          <div className="level-grid">
             {[
               { tag: "初心者", tagBg: "#15803d", title: "楽器経験ゼロでもOK", desc: "見るだけでも参加できます。\n最初の一歩を応援します。", img: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=600&q=80" },
               { tag: "復帰者", tagBg: "#6d28d9", title: "ブランクがあってもOK", desc: "忙しくても大丈夫。\n好きなタイミングで参加できます。", img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&q=80" },
               { tag: "上級者", tagBg: "#92400e", title: "もっと自由にセッションを", desc: "固定バンドに縛られず、\nやりたい曲を、やりたいメンバーで。", img: "https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?w=600&q=80" },
             ].map((card, i) => (
-              <div key={i} style={{ position: "relative", borderRadius: "12px", overflow: "hidden", height: "190px" }}>
+              <div key={i} className="level-card" style={{ position: "relative", borderRadius: "12px", overflow: "hidden", height: "200px" }}>
                 <div style={{ position: "absolute", inset: 0, backgroundImage: `url('${card.img}')`, backgroundSize: "cover", backgroundPosition: "center", filter: "brightness(0.32)" }} />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%)" }} />
-                <div style={{ position: "relative", padding: "14px 16px", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
-                  <div style={{ display: "inline-block", background: card.tagBg, fontSize: "10px", fontWeight: 700, padding: "2px 10px", borderRadius: "20px", marginBottom: "7px", width: "fit-content" }}>{card.tag}</div>
-                  <h3 style={{ fontSize: "16px", fontWeight: 800, marginBottom: "5px", lineHeight: 1.3 }}>{card.title}</h3>
-                  <p style={{ fontSize: "11px", color: "#ccc", lineHeight: 1.6, whiteSpace: "pre-line" }}>{card.desc}</p>
+                <div style={{ position: "relative", padding: "16px 18px", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
+                  <div style={{ display: "inline-block", background: card.tagBg, fontSize: "12px", fontWeight: 700, padding: "3px 12px", borderRadius: "20px", marginBottom: "8px", width: "fit-content" }}>{card.tag}</div>
+                  <h3 style={{ fontSize: "18px", fontWeight: 800, marginBottom: "6px", lineHeight: 1.3 }}>{card.title}</h3>
+                  <p style={{ fontSize: "15px", color: "#ccc", lineHeight: 1.6, whiteSpace: "pre-line" }}>{card.desc}</p>
                 </div>
               </div>
             ))}
@@ -360,55 +356,54 @@ export default function Home() {
       </section>
 
       {/* ══════════════ ExBondの特徴 ══════════════ */}
-      <section id="特徴" style={{ padding: "72px 40px" }}>
+      <section id="特徴" className="lp-section">
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
-          <h2 style={{ textAlign: "center", fontSize: "22px", fontWeight: 800, marginBottom: "36px" }}>
+          <h2 style={{ textAlign: "center", fontSize: "30px", fontWeight: 800, marginBottom: "36px" }}>
             ExBondの特徴
           </h2>
 
-          {/* 4カラム */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "28px", marginBottom: "20px" }}>
+          {/* 4列（モバイルで2列）*/}
+          <div className="features-4col">
             {[
               {
-                icon: <svg viewBox="0 0 24 24" fill="none" stroke="#ccc" strokeWidth="1.5" width="24" height="24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>,
+                icon: <svg viewBox="0 0 24 24" fill="none" stroke="#ccc" strokeWidth="1.5" width="26" height="26"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>,
                 title: "定期的なセッション開催",
                 desc: "週末を中心にセッションを開催。予定が立てやすく参加しやすい！",
               },
               {
-                icon: <svg viewBox="0 0 24 24" fill="none" stroke="#ccc" strokeWidth="1.5" width="24" height="24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+                icon: <svg viewBox="0 0 24 24" fill="none" stroke="#ccc" strokeWidth="1.5" width="26" height="26"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
                 title: "1人参加・途中参加OK",
                 desc: "気まずさゼロの仕組み。初参加でもすぐに馴染めます。",
               },
               {
-                icon: <svg viewBox="0 0 24 24" fill="none" stroke="#ccc" strokeWidth="1.5" width="24" height="24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
+                icon: <svg viewBox="0 0 24 24" fill="none" stroke="#ccc" strokeWidth="1.5" width="26" height="26"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
                 title: "安心・安全のコミュニティ",
                 desc: "ルールを大切にした運営で、誰でも安心して楽しめます。",
               },
               {
-                icon: <svg viewBox="0 0 24 24" fill="none" stroke="#ccc" strokeWidth="1.5" width="24" height="24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>,
+                icon: <svg viewBox="0 0 24 24" fill="none" stroke="#ccc" strokeWidth="1.5" width="26" height="26"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>,
                 title: "オンライン＆リアル両対応",
                 desc: "オンラインでつながり、リアルでも音を合わせよう。",
               },
             ].map((f, i) => (
               <div key={i}>
-                <div style={{ marginBottom: "10px" }}>{f.icon}</div>
-                <div style={{ fontWeight: 700, fontSize: "13px", marginBottom: "6px", lineHeight: 1.4 }}>{f.title}</div>
-                <div style={{ fontSize: "12px", color: "#666", lineHeight: 1.7 }}>{f.desc}</div>
+                <div style={{ marginBottom: "12px" }}>{f.icon}</div>
+                <div style={{ fontWeight: 700, fontSize: "16px", marginBottom: "8px", lineHeight: 1.4 }}>{f.title}</div>
+                <div style={{ fontSize: "14px", color: "#666", lineHeight: 1.8 }}>{f.desc}</div>
               </div>
             ))}
           </div>
 
-          {/* Discord box */}
-          <div style={{
-            background: "#0f0f0f",
-            border: "1px solid #1c1c1c",
-            borderRadius: "12px",
-            padding: "22px 24px",
-            display: "grid",
-            gridTemplateColumns: "60px 1fr 1fr",
-            gap: "20px",
-            alignItems: "start",
-          }}>
+          {/* Discord box（モバイルで縦積み）*/}
+          <div
+            className="discord-3col"
+            style={{
+              background: "#0f0f0f",
+              border: "1px solid #1c1c1c",
+              borderRadius: "12px",
+              padding: "24px",
+            }}
+          >
             <div style={{
               width: "52px", height: "52px",
               background: "#5865F2",
@@ -418,21 +413,21 @@ export default function Home() {
               <DiscordSVG size={26} />
             </div>
             <div>
-              <div style={{ fontWeight: 800, fontSize: "14px", marginBottom: "6px" }}>Discordが初めてでも大丈夫</div>
-              <p style={{ fontSize: "12px", color: "#666", lineHeight: 1.8 }}>
+              <div style={{ fontWeight: 800, fontSize: "17px", marginBottom: "8px" }}>Discordが初めてでも大丈夫</div>
+              <p style={{ fontSize: "15px", color: "#666", lineHeight: 1.8 }}>
                 ExBondはDiscordというアプリを使って活動しています。<br />
                 使い方はシンプルで、見るだけでもOK。安心してご参加ください！
               </p>
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "8px", paddingTop: "2px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "10px", paddingTop: "2px" }}>
               {[
                 { color: "#22c55e", label: "見るだけ参加OK" },
                 { color: "#a78bfa", label: "匿名OK（ニックネームで参加可）" },
                 { color: "#f97316", label: "途中参加・途中退出OK" },
               ].map((item, i) => (
-                <div key={i} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "12px" }}>
+                <div key={i} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px" }}>
                   <div style={{
-                    width: "18px", height: "18px",
+                    width: "20px", height: "20px",
                     borderRadius: "50%",
                     background: item.color + "20",
                     border: `1.5px solid ${item.color}`,
@@ -452,36 +447,37 @@ export default function Home() {
       </section>
 
       {/* ══════════════ 参加者の声 ══════════════ */}
-      <section id="参加者の声" style={{ padding: "72px 40px" }}>
+      <section id="参加者の声" className="lp-section">
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
-          <h2 style={{ textAlign: "center", fontSize: "22px", fontWeight: 800, marginBottom: "32px" }}>
+          <h2 style={{ textAlign: "center", fontSize: "30px", fontWeight: 800, marginBottom: "32px" }}>
             参加者の声
           </h2>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px" }}>
+          {/* 3列（モバイルで1列・高さ自動）*/}
+          <div className="voices-grid">
             {[
               { name: "タカ", role: "20代・ギター", text: "初参加でもすぐに馴染めました！みんな優しくて、雰囲気が最高です。", img: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=400&q=80" },
               { name: "ユウ", role: "30代・ドラム", text: "ブランクがあったけど、ここでまた音楽の楽しさを思い出せました！", img: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?w=400&q=80" },
               { name: "ミナ", role: "20代・ボーカル", text: "いろんな人とセッションできて刺激になります！", img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&q=80" },
             ].map((t, i) => (
-              <div key={i} style={{ position: "relative", borderRadius: "12px", overflow: "hidden", height: "170px" }}>
+              <div key={i} className="voice-card" style={{ position: "relative", borderRadius: "12px", overflow: "hidden", height: "180px" }}>
                 <div style={{ position: "absolute", inset: 0, backgroundImage: `url('${t.img}')`, backgroundSize: "cover", backgroundPosition: "center", filter: "brightness(0.22)" }} />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.2) 100%)" }} />
-                <div style={{ position: "relative", padding: "14px", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "7px" }}>
+                <div style={{ position: "relative", padding: "16px 18px", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
                     <div style={{
-                      width: "30px", height: "30px",
+                      width: "34px", height: "34px",
                       background: "linear-gradient(135deg,#4338ca,#818cf8)",
                       borderRadius: "50%",
                       display: "flex", alignItems: "center", justifyContent: "center",
-                      fontSize: "12px", fontWeight: 700, flexShrink: 0,
+                      fontSize: "14px", fontWeight: 700, flexShrink: 0,
                     }}>{t.name[0]}</div>
                     <div>
-                      <div style={{ fontSize: "12px", fontWeight: 700, lineHeight: 1.2 }}>{t.name}</div>
-                      <div style={{ fontSize: "10px", color: "#999" }}>{t.role}</div>
+                      <div style={{ fontSize: "15px", fontWeight: 700, lineHeight: 1.2 }}>{t.name}</div>
+                      <div style={{ fontSize: "13px", color: "#999" }}>{t.role}</div>
                     </div>
                   </div>
-                  <p style={{ fontSize: "12px", color: "#ddd", lineHeight: 1.65 }}>{t.text}</p>
+                  <p style={{ fontSize: "14px", color: "#ddd", lineHeight: 1.7 }}>{t.text}</p>
                 </div>
               </div>
             ))}
@@ -502,9 +498,9 @@ export default function Home() {
       </section>
 
       {/* ══════════════ よくある質問 ══════════════ */}
-      <section id="よくある質問" style={{ padding: "72px 40px" }}>
+      <section id="よくある質問" className="lp-section">
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
-          <h2 style={{ textAlign: "center", fontSize: "22px", fontWeight: 800, marginBottom: "28px" }}>
+          <h2 style={{ textAlign: "center", fontSize: "30px", fontWeight: 800, marginBottom: "28px" }}>
             よくある質問
           </h2>
           <FAQAccordion items={FAQS} />
@@ -512,18 +508,18 @@ export default function Home() {
       </section>
 
       {/* ══════════════ Googleカレンダー ══════════════ */}
-      <section id="参加の流れ" style={{ padding: "0 40px 72px" }}>
+      <section id="参加の流れ" className="lp-section-cal">
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
-          <h2 style={{ textAlign: "center", fontSize: "22px", fontWeight: 800, marginBottom: "8px" }}>
+          <h2 style={{ textAlign: "center", fontSize: "30px", fontWeight: 800, marginBottom: "8px" }}>
             開催スケジュール
           </h2>
-          <p style={{ textAlign: "center", color: "#555", fontSize: "12px", marginBottom: "24px" }}>
+          <p style={{ textAlign: "center", color: "#555", fontSize: "16px", marginBottom: "24px" }}>
             最新のセッション予定はこちら
           </p>
           <div style={{ borderRadius: "12px", overflow: "hidden", border: "1px solid #1c1c1c" }}>
             <iframe
               src={`https://calendar.google.com/calendar/embed?src=${encodeURIComponent(GOOGLE_CALENDAR_SRC)}&ctz=Asia%2FTokyo&bgcolor=%230b0b0b&color=%236366f1&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0`}
-              style={{ border: "none", width: "100%", height: "460px", display: "block" }}
+              className="cal-iframe"
               title="ExBond 開催スケジュール"
             />
           </div>
@@ -531,8 +527,7 @@ export default function Home() {
       </section>
 
       {/* ══════════════ 最終CTA ══════════════ */}
-      <section style={{
-        padding: "80px 40px",
+      <section className="lp-cta" style={{
         background: "linear-gradient(135deg, #1e1a4e 0%, #2e2370 40%, #4a1a8a 100%)",
         textAlign: "center",
         position: "relative",
@@ -544,20 +539,20 @@ export default function Home() {
         }} />
         <div style={{ position: "relative" }}>
           <h2 style={{
-            fontSize: "clamp(22px, 3vw, 36px)",
+            fontSize: "clamp(24px, 3vw, 38px)",
             fontWeight: 900,
-            marginBottom: "12px",
+            marginBottom: "14px",
             letterSpacing: "0.02em",
           }}>
-            さあ、あなたも一緒に音を楽しもう！
+            さあ、あなたも<br />一緒に音を楽しもう！
           </h2>
-          <p style={{ fontSize: "13px", color: "#c4b5fd", marginBottom: "28px" }}>
+          <p style={{ fontSize: "16px", color: "#c4b5fd", marginBottom: "28px" }}>
             まずは気軽にDiscordに参加して、コミュニティをのぞいてみてください。
           </p>
-          <DiscordBtn href={DISCORD_URL} style={{ fontSize: "15px", padding: "15px 34px", borderRadius: "8px" }}>
+          <DiscordBtn href={DISCORD_URL} style={{ fontSize: "16px", padding: "16px 36px", borderRadius: "8px" }}>
             今すぐDiscordに参加する（無料）
           </DiscordBtn>
-          <p style={{ marginTop: "12px", fontSize: "11px", color: "#9d87d8" }}>
+          <p style={{ marginTop: "14px", fontSize: "14px", color: "#9d87d8" }}>
             見るだけでもOK！あなたのペースで大丈夫です。
           </p>
         </div>
@@ -570,8 +565,9 @@ export default function Home() {
         textAlign: "center",
         borderTop: "1px solid #111",
         color: "#3a3a3a",
-        fontSize: "11px",
-      }}>
+        fontSize: "13px",
+
+}}>
         © 2026 ExBond – Nagoya Band Community
       </footer>
     </main>
