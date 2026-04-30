@@ -200,12 +200,12 @@ export default function Home() {
           backgroundImage: "url('https://images.unsplash.com/photo-1501612780327-45045538702b?w=1600&q=80')",
           backgroundSize: "cover",
           backgroundPosition: "60% center",
-          filter: "brightness(0.5)",
+          filter: "brightness(0.3)",
         }} />
         {/* 左フェード */}
         <div style={{
           position: "absolute", inset: 0,
-          background: "linear-gradient(to right, #0b0b0b 30%, rgba(11,11,11,0.55) 58%, rgba(11,11,11,0.05) 100%)",
+          background: "linear-gradient(to right, #0b0b0b 38%, rgba(11,11,11,0.6) 65%, rgba(11,11,11,0.1) 100%)",
         }} />
         {/* 下フェード */}
         <div style={{
@@ -257,7 +257,7 @@ export default function Home() {
             ))}
           </div>
 
-          <DiscordBtn href={DISCORD_URL} style={{ fontSize: "16px", padding: "16px 32px", borderRadius: "8px", marginBottom: "10px" }}>
+          <DiscordBtn href={DISCORD_URL} style={{ fontSize: "16px", padding: "14px 24px", borderRadius: "8px", marginBottom: "10px" }}>
             Discordに参加する（見るだけOK）
           </DiscordBtn>
           <div style={{ fontSize: "14px", color: "#555" }}>無料で参加できます</div>
