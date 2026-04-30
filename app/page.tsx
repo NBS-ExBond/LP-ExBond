@@ -257,7 +257,7 @@ export default function Home() {
             ))}
           </div>
 
-          <DiscordBtn href={DISCORD_URL} style={{ fontSize: "16px", padding: "14px 24px", borderRadius: "8px", marginBottom: "10px" }}>
+          <DiscordBtn href={DISCORD_URL} style={{ fontSize: "16px", padding: "14px 20px", borderRadius: "8px", marginBottom: "10px" }}>
             Discordに参加する（見るだけOK）
           </DiscordBtn>
           <div style={{ fontSize: "14px", color: "#555" }}>無料で参加できます</div>
