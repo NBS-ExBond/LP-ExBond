@@ -330,7 +330,7 @@ export default function Home() {
           <h2 style={{ textAlign: "center", fontSize: "30px", fontWeight: 800, marginBottom: "8px" }}>
             あなたの&quot;今&quot;に合わせて参加できます
           </h2>
-          <p style={{ textAlign: "center", color: "#666", fontSize: "16px", marginBottom: "28px" }}>
+          <p style={{ textAlign: "center", color: "#8d8d8d", fontSize: "16px", marginBottom: "28px" }}>
             どんな状況でも歓迎します
           </p>
 
@@ -389,7 +389,7 @@ export default function Home() {
               <div key={i}>
                 <div style={{ marginBottom: "12px" }}>{f.icon}</div>
                 <div style={{ fontWeight: 700, fontSize: "16px", marginBottom: "8px", lineHeight: 1.4 }}>{f.title}</div>
-                <div style={{ fontSize: "14px", color: "#666", lineHeight: 1.8 }}>{f.desc}</div>
+                <div style={{ fontSize: "14px", color: "#8d8d8d", lineHeight: 1.8 }}>{f.desc}</div>
               </div>
             ))}
           </div>
@@ -414,7 +414,7 @@ export default function Home() {
             </div>
             <div>
               <div style={{ fontWeight: 800, fontSize: "17px", marginBottom: "8px" }}>Discordが初めてでも大丈夫</div>
-              <p style={{ fontSize: "15px", color: "#666", lineHeight: 1.8 }}>
+              <p style={{ fontSize: "15px", color: "#8d8d8d", lineHeight: 1.8 }}>
                 ExBondはDiscordというアプリを使って活動しています。<br />
                 使い方はシンプルで、見るだけでもOK。安心してご参加ください！
               </p>
