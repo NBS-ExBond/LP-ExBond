@@ -229,7 +229,7 @@ export default function Home() {
           <p style={{ fontSize: "16px", color: "#818cf8", fontWeight: 700, marginBottom: "8px" }}>
             初心者でも、久しぶりでも、上級者でも。
           </p>
-          <p style={{ fontSize: "15px", color: "#777", marginBottom: "28px" }}>
+          <p style={{ fontSize: "15px", color: "#8d8d8d", marginBottom: "28px" }}>
             セッションでつながる音楽コミュニティ
           </p>
 
