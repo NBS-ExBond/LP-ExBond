@@ -17,15 +17,15 @@ const FAQS: FAQItem[] = [
   },
   {
     question: "費用はかかりますか？",
-    answer: "Discordへの参加は無料です。スタジオ代などは実費をご負担いただく場合があります。詳細はコミュニティ内でご確認ください。",
+    answer: "Discordへの参加は無料です。スタジオ代などは実費をご負担いただきます。詳細はコミュニティ内でご確認ください。",
   },
   {
     question: "どんな活動をしていますか？",
-    answer: "週末を中心にスタジオでのセッション、オンラインでの交流、楽曲共有などを行っています。",
+    answer: "2-3か月に1回程度、土日を中心にスタジオでのセッションを行っています。また、ディスコードやセッション会で知り合ったメンバーで個別にスタジオ練習で遊んだりもしています",
   },
   {
     question: "参加方法を教えてください",
-    answer: "このページのDiscordボタンからサーバーに参加するだけです。見るだけでも歓迎していますので、お気軽にどうぞ！",
+    answer: "このページのDiscordボタンからサーバーに参加するだけです。まずは見るだけでも歓迎していますので、お気軽にどうぞ！",
   },
 ];
 
@@ -103,7 +103,7 @@ function FAQAccordion({ items }: { items: FAQItem[] }) {
             }}
           >
             <span>{item.question}</span>
-            <span style={{ fontSize: "20px", color: "#555", flexShrink: 0, fontWeight: 300 }}>+</span>
+            <span style={{ fontSize: "20px", color: "rgb(201, 195, 195)", flexShrink: 0, fontWeight: 300 }}>+</span>
           </button>
           {openIndex === i && (
             <div style={{ padding: "0 20px 18px", fontSize: "15px", color: "#777", lineHeight: 1.8 }}>
@@ -260,7 +260,7 @@ export default function Home() {
           <DiscordBtn href={DISCORD_URL} style={{ fontSize: "16px", padding: "14px 20px", borderRadius: "8px", marginBottom: "10px" }}>
             Discordに参加する（見るだけOK）
           </DiscordBtn>
-          <div style={{ fontSize: "14px", color: "#555" }}>無料で参加できます</div>
+          <div style={{ fontSize: "14px", color: "rgb(201, 195, 195)" }}>無料で参加できます</div>
         </div>
       </section>
 
@@ -513,7 +513,7 @@ export default function Home() {
           <h2 style={{ textAlign: "center", fontSize: "30px", fontWeight: 800, marginBottom: "8px" }}>
             開催スケジュール
           </h2>
-          <p style={{ textAlign: "center", color: "#555", fontSize: "16px", marginBottom: "24px" }}>
+          <p style={{ textAlign: "center", color: "rgb(201, 195, 195)", fontSize: "16px", marginBottom: "24px" }}>
             最新のセッション予定はこちら
           </p>
           <div style={{ borderRadius: "12px", overflow: "hidden", border: "1px solid #1c1c1c" }}>
