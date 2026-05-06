@@ -21,7 +21,7 @@ const FAQS: FAQItem[] = [
   },
   {
     question: "どんな活動をしていますか？",
-    answer: "2-3か月に1回程度、土日を中心にスタジオでのセッションを行っています。また、ディスコードやセッション会で知り合ったメンバーで個別にスタジオ練習で遊んだりもしています",
+    answer: "2-3か月に1回程度、土曜を中心にスタジオでのセッションを行っています。また、ディスコードやセッション会で知り合ったメンバーで個別にスタジオ練習で遊んだりもしています",
   },
   {
     question: "参加方法を教えてください",
@@ -230,7 +230,7 @@ export default function Home() {
             初心者でも、久しぶりでも、上級者でも。
           </p>
           <p style={{ fontSize: "15px", color: "#777", marginBottom: "28px" }}>
-            固定バンドなし。セッションでつながる音楽コミュニティ
+            セッションでつながる音楽コミュニティ
           </p>
 
           {/* バッジ */}
@@ -258,7 +258,7 @@ export default function Home() {
           </div>
 
           <DiscordBtn href={DISCORD_URL} style={{ fontSize: "16px", padding: "14px 20px", borderRadius: "8px", marginBottom: "10px" }}>
-            Discordに参加する（見るだけOK）
+            Discordに参加する
           </DiscordBtn>
           <div style={{ fontSize: "14px", color: "rgb(201, 195, 195)" }}>無料で参加できます</div>
         </div>
@@ -317,7 +317,7 @@ export default function Home() {
                 <div style={{ fontSize: "16px", fontWeight: 700, marginBottom: "8px", whiteSpace: "pre-line", lineHeight: 1.55 }}>
                   {card.title}
                 </div>
-                <div style={{ fontSize: "15px", color: "#666", lineHeight: 1.6 }}>{card.desc}</div>
+                <div style={{ fontSize: "15px", color: "#8d8d8d", lineHeight: 1.6 }}>{card.desc}</div>
               </div>
             ))}
           </div>
@@ -368,7 +368,7 @@ export default function Home() {
               {
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="#ccc" strokeWidth="1.5" width="26" height="26"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>,
                 title: "定期的なセッション開催",
-                desc: "週末を中心にセッションを開催。予定が立てやすく参加しやすい！",
+                desc: "土曜日を中心にセッションを開催。予定が立てやすく参加しやすい！",
               },
               {
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="#ccc" strokeWidth="1.5" width="26" height="26"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
@@ -446,57 +446,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════ 参加者の声 ══════════════ */}
-      <section id="参加者の声" className="lp-section">
-        <div style={{ maxWidth: "960px", margin: "0 auto" }}>
-          <h2 style={{ textAlign: "center", fontSize: "30px", fontWeight: 800, marginBottom: "32px" }}>
-            参加者の声
-          </h2>
-
-          {/* 3列（モバイルで1列・高さ自動）*/}
-          <div className="voices-grid">
-            {[
-              { name: "タカ", role: "20代・ギター", text: "初参加でもすぐに馴染めました！みんな優しくて、雰囲気が最高です。", img: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=400&q=80" },
-              { name: "ユウ", role: "30代・ドラム", text: "ブランクがあったけど、ここでまた音楽の楽しさを思い出せました！", img: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?w=400&q=80" },
-              { name: "ミナ", role: "20代・ボーカル", text: "いろんな人とセッションできて刺激になります！", img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&q=80" },
-            ].map((t, i) => (
-              <div key={i} className="voice-card" style={{ position: "relative", borderRadius: "12px", overflow: "hidden", height: "180px" }}>
-                <div style={{ position: "absolute", inset: 0, backgroundImage: `url('${t.img}')`, backgroundSize: "cover", backgroundPosition: "center", filter: "brightness(0.22)" }} />
-                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.2) 100%)" }} />
-                <div style={{ position: "relative", padding: "16px 18px", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
-                    <div style={{
-                      width: "34px", height: "34px",
-                      background: "linear-gradient(135deg,#4338ca,#818cf8)",
-                      borderRadius: "50%",
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      fontSize: "14px", fontWeight: 700, flexShrink: 0,
-                    }}>{t.name[0]}</div>
-                    <div>
-                      <div style={{ fontSize: "15px", fontWeight: 700, lineHeight: 1.2 }}>{t.name}</div>
-                      <div style={{ fontSize: "13px", color: "#999" }}>{t.role}</div>
-                    </div>
-                  </div>
-                  <p style={{ fontSize: "14px", color: "#ddd", lineHeight: 1.7 }}>{t.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* ドット */}
-          <div style={{ display: "flex", justifyContent: "center", gap: "6px", marginTop: "18px" }}>
-            {[0, 1, 2].map((i) => (
-              <div key={i} style={{
-                width: i === 0 ? "18px" : "7px",
-                height: "7px",
-                borderRadius: "4px",
-                background: i === 0 ? "#6366f1" : "#2a2a2a",
-              }} />
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ══════════════ よくある質問 ══════════════ */}
       <section id="よくある質問" className="lp-section">
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
@@ -550,7 +499,7 @@ export default function Home() {
             まずは気軽にDiscordに参加して、コミュニティをのぞいてみてください。
           </p>
           <DiscordBtn href={DISCORD_URL} style={{ fontSize: "16px", padding: "16px 36px", borderRadius: "8px" }}>
-            今すぐDiscordに参加する（無料）
+            今すぐDiscordに参加する
           </DiscordBtn>
           <p style={{ marginTop: "14px", fontSize: "14px", color: "#9d87d8" }}>
             見るだけでもOK！あなたのペースで大丈夫です。
