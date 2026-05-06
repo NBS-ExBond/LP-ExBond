@@ -197,7 +197,7 @@ export default function Home() {
         {/* 背景写真 */}
         <div style={{
           position: "absolute", inset: 0,
-          backgroundImage: "url('https://unsplash.com/ja/%E5%86%99%E7%9C%9F/%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E6%A5%BD%E5%99%A8%E3%82%92%E6%8C%81%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E4%BA%BA%E3%80%85%E3%81%AE%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%AB%E5%86%99%E7%9C%9F-pH88tHG-1yw')",
+          backgroundImage: "url('https://images.unsplash.com/photo-1501612780327-45045538702b?w=1600&q=80')",
           backgroundSize: "cover",
           backgroundPosition: "60% center",
           filter: "brightness(0.3)",
