@@ -270,7 +270,7 @@ export default function Home() {
           <h2 style={{ textAlign: "center", fontSize: "30px", fontWeight: 800, marginBottom: "8px" }}>
             こんな人におすすめ
           </h2>
-          <p style={{ textAlign: "center", color: "#666", fontSize: "16px", marginBottom: "36px" }}>
+          <p style={{ textAlign: "center", color: "#8d8d8d", fontSize: "16px", marginBottom: "36px" }}>
             ひとつでも当てはまる方は、ぜひご参加ください
           </p>
 
